@@ -1,0 +1,76 @@
+stdout
+['Train_FRU_Test_T1/AM_Rewarded', 'Train_FRU_Test_T1/EM_Rewarded']
+
+Executing group analysis of individual larvae for ['Train_FRU_Test_T1_-_AM_Rewarded', 'Train_FRU_Test_T1_-_EM_Rewarded']
+====['Train_FRU_Test_T1', 'AM_Rewarded']
+
+==================================================
+
+Loading data from database...
+
+ - parent_dir:  
+
+ - experiment:  base_dir
+
+ - group: Train_FRU_Test_T1
+
+ - condition: Train_FRU_Test_T1_-_AM_Rewarded
+base_dir/Tracked_Small/Train_FRU_Test_T1/AM_Rewarded
+TRIALS FOUND: 
+['box2-2015-10-08_09_08_05']
+
+   - trial: box2-2015-10-08_09_08_05
+
+   - trial dir: base_dir/Tracked_Small/Train_FRU_Test_T1/AM_Rewarded/box2-2015-10-08_09_08_05
+[-44.887    -4.03582]
+Changing odor to: [-44.887    -4.03582]
+Changed odor to: [0.0, 45.06806643370004]
+Rebuilding data
+
+==================================================
+
+Writing database...
+Error: /base_dir/Tracked_Small is not a directory!
+Error: /base_dir/Tracked_Small/Train_FRU_Test_T1/AM_Rewarded is not a directory!
+
+...done
+
+...done
+====['Train_FRU_Test_T1', 'EM_Rewarded']
+
+==================================================
+
+Loading data from database...
+
+ - parent_dir:  
+
+ - experiment:  base_dir
+
+ - group: Train_FRU_Test_T1
+
+ - condition: Train_FRU_Test_T1_-_EM_Rewarded
+base_dir/Tracked_Small/Train_FRU_Test_T1/EM_Rewarded
+TRIALS FOUND: 
+['box2-2015-10-12_12_15_57']
+
+   - trial: box2-2015-10-12_12_15_57
+
+   - trial dir: base_dir/Tracked_Small/Train_FRU_Test_T1/EM_Rewarded/box2-2015-10-12_12_15_57
+[-44.887    -4.03582]
+Changing odor to: [-44.887    -4.03582]
+Changed odor to: [0.0, 45.06806643370004]
+Rebuilding data
+
+==================================================
+
+Writing database...
+Error: /base_dir/Tracked_Small is not a directory!
+Error: /base_dir/Tracked_Small/Train_FRU_Test_T1/EM_Rewarded is not a directory!
+
+...done
+
+...done
+Accepted_tracks for Train_FRU_Test_T1_-_AM_Rewarded :
+Accepted_tracks for Train_FRU_Test_T1_-_EM_Rewarded :
+figure_proportion_of_time
+[]

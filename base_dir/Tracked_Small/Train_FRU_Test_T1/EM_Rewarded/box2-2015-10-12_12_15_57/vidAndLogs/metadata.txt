@@ -1,0 +1,7 @@
+[Trial Data]
+OdorA=AM
+OdorB=EM
+OdorA_Side=left
+OdorA_Rewarded=YES
+FPS=16
+OdorALocation=-44.887, -4.03582

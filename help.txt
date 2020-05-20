@@ -1,0 +1,135 @@
+usage: lin-analysis.py [-h] [--basedir BASEDIR]
+                       [--experiment-name EXPERIMENT_NAME] --analysis-mode
+                       {single,trial,group,multiple-groups,individual}
+                       [--fps FPS] [--minimal-duration MINIMAL_DURATION]
+                       [--radius RADIUS] [--time-range-start TIME_RANGE_START]
+                       [--time-range-end TIME_RANGE_END] [--duration DURATION]
+                       [--odor-A ODOR_A] [--odor-B ODOR_B] [--save-figure]
+                       [--no-save-figure] [--figure-folder FIGURE_FOLDER]
+                       [--save-data] [--no-save-data]
+                       [--data-folder DATA_FOLDER]
+                       [--movie-folder MOVIE_FOLDER] [--animate-track]
+                       [--track-file TRACK_FILE] [--group-name GROUP_NAME]
+                       [--condition-name CONDITION_NAME]
+                       [--trial-name TRIAL_NAME] [--track-name TRACK_NAME]
+                       [--single-track-analysis {track_on_dish,animate_track,single_contour,time_series_separate,time_series_all_in_one,all} [{track_on_dish,animate_track,single_contour,time_series_separate,time_series_all_in_one,all} ...]]
+                       [--trial-dir TRIAL_DIR] [--group-dir GROUP_DIR]
+                       [--condition-dir CONDITION_DIR]
+                       [--trial-analysis {tracks_on_dish} [{tracks_on_dish} ...]]
+                       [--group-analysis {tracks_on_dish,density_on_distance_time,time_resolved_PREF,histograms,scatter_plot_with_hist,3d_scatter_plot,heatmap_distance_bearing_projected,heatmap_distance_bearing,HC_direction_serial_correlation,all} [{tracks_on_dish,density_on_distance_time,time_resolved_PREF,histograms,scatter_plot_with_hist,3d_scatter_plot,heatmap_distance_bearing_projected,heatmap_distance_bearing,HC_direction_serial_correlation,all} ...]]
+                       [--groups GROUPS [GROUPS ...]]
+                       [--multiple-groups-analysis {variable_depending_on_bearing,boxplot_variable_depending_on_bearing,time_resolved_PREFs,all} [{variable_depending_on_bearing,boxplot_variable_depending_on_bearing,time_resolved_PREFs,all} ...]]
+                       [--begin-range BEGIN_RANGE] [--end-range END_RANGE]
+                       [--min-valid-duration MIN_VALID_DURATION]
+                       [--individual-analysis {all} [{all} ...]]
+
+Statistical Analyses for larvae experiments.
+
+optional arguments:
+  -h, --help            show this help message and exit
+
+Required Arguments:
+  --basedir BASEDIR     Name of the top level directory where the experiment
+                        folder resides.
+  --experiment-name EXPERIMENT_NAME
+                        Name of the experiment.
+  --analysis-mode {single,trial,group,multiple-groups,individual}
+                        Mode of analysis (required).
+
+General Arguments:
+  --fps FPS             fps used for filming the larvae.
+  --minimal-duration MINIMAL_DURATION
+                        consider only tracks larger than the value given (in
+                        seconds).
+  --radius RADIUS       Radius of the petri dish in (mm).
+  --time-range-start TIME_RANGE_START
+                        Restrict analysis to data collected after N sec.
+                        (Default: 0)
+  --time-range-end TIME_RANGE_END
+                        Restrict analysis to data collected before N sec.
+                        (Default: -1)
+  --duration DURATION   Duration of each experiment in seconds. (Default: 180)
+  --odor-A ODOR_A       Position of odor A using x,y coords (--paired-odor
+                        0.0,44.2)
+  --odor-B ODOR_B       Position of odor B using x,y coords (--unpaired-odor
+                        0.0,44.2)
+  --save-figure         Save figures to figure folder.
+  --no-save-figure      Do not save figures.
+  --figure-folder FIGURE_FOLDER
+                        Folder into which to save the figures.
+  --save-data           Save data to data folder.
+  --no-save-data        Do not save data.
+  --data-folder DATA_FOLDER
+                        Folder into which to save the data.
+  --movie-folder MOVIE_FOLDER
+                        Folder into which to save the movies.
+
+Single Track Mode:
+  Analysis of a given single track. Use either with direct file path
+  (--track-file) or by providing the basedir experiment group trial and
+  track information. The track-file argument supersedes the
+  basedir,experiment etc. information.
+
+  --animate-track       Display an animated larva moving around the dish.
+  --track-file TRACK_FILE
+                        Path for CSV file containing track info.
+  --group-name GROUP_NAME
+                        Name of group (folder name).
+  --condition-name CONDITION_NAME
+                        Name of group (folder name).
+  --trial-name TRIAL_NAME
+                        Name of trial (folder name).
+  --track-name TRACK_NAME
+                        File name of track (csv file).
+  --single-track-analysis {track_on_dish,animate_track,single_contour,time_series_separate,time_series_all_in_one,all} [{track_on_dish,animate_track,single_contour,time_series_separate,time_series_all_in_one,all} ...]
+                        Kinds of analyses to perform.
+
+Trial Mode:
+  Analysis of a given trial (i.e. all tracks on a single petri dish). Use
+  either with direct file path (--trial-dir) or by providing the basedir
+  experiment group and trial names. The trial-dir argument supersedes the
+  basedir,experiment etc. information.
+
+  --trial-dir TRIAL_DIR
+                        Path for CSV file containing track info.
+  --trial-analysis {tracks_on_dish} [{tracks_on_dish} ...]
+                        Kinds of analyses to perform.
+
+Group Mode:
+  Analysis of a given experimental group. Use either with direct file path
+  (--group-dir) or by providing the basedir, experiment and group names. The
+  group-dir argument supersedes the basedir,experiment etc. information.
+
+  --group-dir GROUP_DIR
+                        Path for the folder containing group data.
+  --condition-dir CONDITION_DIR
+                        Path for a single reciprocal from the group
+  --group-analysis {tracks_on_dish,density_on_distance_time,time_resolved_PREF,histograms,scatter_plot_with_hist,3d_scatter_plot,heatmap_distance_bearing_projected,heatmap_distance_bearing,HC_direction_serial_correlation,all} [{tracks_on_dish,density_on_distance_time,time_resolved_PREF,histograms,scatter_plot_with_hist,3d_scatter_plot,heatmap_distance_bearing_projected,heatmap_distance_bearing,HC_direction_serial_correlation,all} ...]
+                        Kinds of analyses to perform.
+
+Multiple Group Mode:
+  Analysis of a given experimental group. by providing the basedir,
+  experiment and group names. The group-dir argument supersedes the
+  basedir,experiment etc. information.
+
+  --groups GROUPS [GROUPS ...]
+                        Groups to plot next to each other.
+  --multiple-groups-analysis {variable_depending_on_bearing,boxplot_variable_depending_on_bearing,time_resolved_PREFs,all} [{variable_depending_on_bearing,boxplot_variable_depending_on_bearing,time_resolved_PREFs,all} ...]
+                        Kinds of analyses to perform.
+
+Individual Mode:
+  Analysis of individuals within a given experimental group. Use either with
+  direct file path (--group-dir) or by providing the basedir, experiment and
+  group names. The group-dir argument supersedes the basedir,experiment etc.
+  information.
+
+  --begin-range BEGIN_RANGE
+                        Consider tracks starting after the given value
+  --end-range END_RANGE
+                        Consider tracks starting after the given value
+  --min-valid-duration MIN_VALID_DURATION
+                        Consider tracks whose valid duration is more than the
+                        given value. We consider only stretches of data longer
+                        than the minimal_duration parameter
+  --individual-analysis {all} [{all} ...]
+                        Kinds of analyses to perform.
